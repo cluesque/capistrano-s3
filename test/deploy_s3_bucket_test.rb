@@ -7,7 +7,7 @@ require 'stringio'
 context "Capistrano::Deploy::Strategy::S3Bucket" do
   def setup
     logger = Capistrano::Logger.new(:output => StringIO.new)
-    # Uncomment this line to see the output a cap user would see
+    # Uncomment this line to see the output a cap user would see for debugging
     # logger = Capistrano::Logger.new
     logger.level = Capistrano::Logger::MAX_LEVEL
     @config = { :application => "testapp",
