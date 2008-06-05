@@ -1,0 +1,17 @@
+Capistrano-S3 is a capistrano deployment strategy that will:
+
+    * svn export locally
+    * make a tarball (named after the svn revision) of the release
+    * push the tarball to S3
+    * each server pulls that tarball from S3 
+
+This allows one to use an svn repository not exposed to the outside world, save time pushing out of a poky cable modem, and have new EC2 instances pull directly from S3 on startup.
+
+If the tarball is already in S3 (from a previous deployment, say to a staging instance) the checkout is skipped.
+
+To use it, specify properties:
+set :deploy_via, :s3_bucket
+set :deploy_s3_bucket, 'com.example.releases' # The name of the S3 bucket that should get releases
+s3_config = YAML::load(ERB.new(IO.read("secret/s3.yml")).result) # Follow this pattern and don't ckin your secrets
+# s3_config = { 'AWS_ACCOUNT_NUMBER' => '1234-5678-9012', 'AWS_ACCESS_KEY_ID' => 'ABCDEFGHIJKLMNOPQRST', 'AWS_SECRET_ACCESS_KEY' => 'abcdefghijklmnopqrstuvwxyz01234567890ABC' }
+set :s3_config, s3_config
