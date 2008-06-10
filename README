@@ -1,3 +1,5 @@
+= Introduction
+
 Capistrano-S3 is a capistrano deployment strategy that will:
 
     * svn export locally
@@ -9,9 +11,21 @@ This allows one to use an svn repository not exposed to the outside world, save 
 
 If the tarball is already in S3 (from a previous deployment, say to a staging instance) the checkout is skipped.
 
-To use it, specify properties:
-set :deploy_via, :s3_bucket
-set :deploy_s3_bucket, 'com.example.releases' # The name of the S3 bucket that should get releases
-s3_config = YAML::load(ERB.new(IO.read("secret/s3.yml")).result) # Follow this pattern and don't ckin your secrets
-# s3_config = { 'AWS_ACCOUNT_NUMBER' => '1234-5678-9012', 'AWS_ACCESS_KEY_ID' => 'ABCDEFGHIJKLMNOPQRST', 'AWS_SECRET_ACCESS_KEY' => 'abcdefghijklmnopqrstuvwxyz01234567890ABC' }
-set :s3_config, s3_config
+= Installation
+  gem install capistrano_s3
+
+To use it, specify properties in <tt>config/deploy.rb</tt>:
+  set :deploy_via, :s3_bucket
+  set :deploy_s3_bucket, 'com.example.releases' # The name of the S3 bucket that should get releases
+  s3_config = YAML::load(ERB.new(IO.read("secret/s3.yml")).result) # Follow this pattern and don't ckin your secrets
+  # s3_config = { 'AWS_ACCOUNT_NUMBER' => '1234-5678-9012', 'AWS_ACCESS_KEY_ID' => 'ABCDEFGHIJKLMNOPQRST', 'AWS_SECRET_ACCESS_KEY' => 'abcdefghijklmnopqrstuvwxyz01234567890ABC' }
+  set :s3_config, s3_config
+
+Now regular capistrano deployment tasks will go through S3
+
+= About
+
+Rubyforge Project:: http://rubyforge.org/projects/capistrano-s3
+Author:: Bill Kirtley - bill at [nospam] virosity dt com
+License:: Distributed under MIT License
+Copyright:: 2008 Bill Kirtley, Virosity Inc.

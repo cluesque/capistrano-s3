@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
 
   s.author = "Bill Kirtley"
   s.email = "bill@virosity.com"
-  s.rubyforge_project = "capistrano-aws"
+  s.rubyforge_project = "capistrano-s3"
   s.homepage = "http://virosity.com"
 end
