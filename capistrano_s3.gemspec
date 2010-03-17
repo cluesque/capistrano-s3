@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.add_dependency 's3sync'
 
   s.author = "Bill Kirtley"
-  s.email = "bill@virosity.com"
-  s.rubyforge_project = "capistrano-s3"
-  s.homepage = "http://virosity.com"
+  s.email = "bill.kirtley@gmail.com"
+  s.rubyforge_project = nil
+  s.homepage = "http://github.com/cluesque/capistrano-s3"
 end

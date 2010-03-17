@@ -26,6 +26,6 @@ Now regular capistrano deployment tasks will go through S3
 = About
 
 Rubyforge Project:: http://rubyforge.org/projects/capistrano-s3
-Author:: Bill Kirtley - bill at [nospam] virosity dt com
+Author:: Bill Kirtley - bill.kirtley at [nospam] gmail dt com
 License:: Distributed under MIT License
 Copyright:: 2008 Bill Kirtley, Virosity Inc.
